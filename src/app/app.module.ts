@@ -17,8 +17,11 @@ import { Routes , RouterModule } from '@angular/router';
 const AppRoutes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'school', component: SchoolComponent },
-  { path: 'school-details', component: SchoolDetailsComponent },
+  { path: 'school-details/:ID', component: SchoolDetailsComponent },
+  { path : '' , redirectTo:'main' , pathMatch:'full'}
 ];
+
+// { path: 'school-details', component: SchoolDetailsComponent },
 
 @NgModule({
   declarations: [
