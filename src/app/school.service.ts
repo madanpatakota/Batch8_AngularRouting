@@ -33,6 +33,7 @@ export class SchoolService {
   ];
 
 
+  // i have prepared the model for this schooldetail
  private schoolDetails = [
     {
       SchoolID: 'School-1',

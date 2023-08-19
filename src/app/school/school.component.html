@@ -20,10 +20,19 @@
          <td> {{school.Rating}} </td>
          <td> {{school.CityName}} </td>
 
+         <!-- //https://github.com/madanpatakota?tab=repositories    - querystring -->
          <!-- <td> <a routerLink="/school-details" style="color:blue;cursor: pointer;"> More...</a>  </td> -->
+         <!-- <td> <a [routerLink]="['/school-details' , school.ID ]" style="color:blue;cursor: pointer;"> More...</a>  </td> -->
 
 
-         <td> <a [routerLink]="['/school-details' , school.ID ]" style="color:blue;cursor: pointer;"> More...</a>  </td>
+<!--          
+         <td> <a [routerLink]="['/school-details']" [queryParams]="{ ID : school.ID}" style="color:blue;cursor: pointer;"> More...</a>  </td> -->
+
+         <!-- <td> <a [routerLink]="['/school-details']" [fragment]="school.ID" style="color:blue;cursor: pointer;"> More...</a>  </td> -->
+         <td> 
+            <a style="color:blue;cursor: pointer;" 
+            (click)="evtNavigation(school.ID)" > More...</a>
+         </td>
       </tr>
    </tbody>
 </table>

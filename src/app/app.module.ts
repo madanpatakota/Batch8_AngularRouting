@@ -14,13 +14,24 @@ import { Routes , RouterModule } from '@angular/router';
 // path : 'school'  schoolcomponent
 // path : 'schooldetails' schooldetailcomponent
 
+//https://github.com/madanpatakota                     - path
+//https://github.com/madanpatakota/repositories        - params
+//https://github.com/madanpatakota?tab=repositories    - querystring
+//https://github.com/madanpatakota#repositories        - fragment
+
+//http://localhost:4200/school-details/School-1         - param
+//http://localhost:4200/school-details?ID=School-1      - queyrstring
+//http://localhost:4200/school-details#School-1         - fragment
+
+
 const AppRoutes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'school', component: SchoolComponent },
-  { path: 'school-details/:ID', component: SchoolDetailsComponent },
+  { path: 'school-details', component: SchoolDetailsComponent },
   { path : '' , redirectTo:'main' , pathMatch:'full'}
 ];
 
+//{ path: 'school-details/:ID', component: SchoolDetailsComponent }, param path
 // { path: 'school-details', component: SchoolDetailsComponent },
 
 @NgModule({
