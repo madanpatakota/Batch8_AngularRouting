@@ -65,6 +65,16 @@ export class SchoolDetailsComponent implements OnInit {
 
 
   }
+
+
+
+  evtNormalUser(){
+    localStorage.setItem("username","normaluser@gmail.com");
+    
+  }
+  evtAdminUser(){
+    localStorage.setItem("username","admin@gmail.com");
+  }
 }
 
 // function CustomerName(ID){

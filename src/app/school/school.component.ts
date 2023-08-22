@@ -25,7 +25,7 @@ export class SchoolComponent implements OnInit {
     evtNavigation(schoolID:any){
        //this.router.navigate(['/school-details' , schoolID ])                                --param
        //this.router.navigate(['/school-details'] , { queryParams : { ID : schoolID}});       --querystring
-       this.router.navigate(['/school-details'] , { fragment : schoolID}); 
+       this.router.navigate(['/school-details'] , { fragment : schoolID});                    //--fragment
     }  
 
 

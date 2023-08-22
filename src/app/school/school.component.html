@@ -32,9 +32,17 @@
          <td> 
             <a style="color:blue;cursor: pointer;" 
             (click)="evtNavigation(school.ID)" > More...</a>
+            |
+            <a [routerLink]="['schoolhistory']" [fragment]="school.ID" style="color:green;cursor: pointer;" 
+            > Details...</a>
          </td>
+         
       </tr>
    </tbody>
 </table>
 </div>
 </div>
+
+
+<!-- i am going to display the school history compoennt -->
+<router-outlet></router-outlet>

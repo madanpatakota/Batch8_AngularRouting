@@ -1,0 +1,22 @@
+
+<div style="padding:50px" class="mt-4">
+<h3>Login Page</h3>
+<form>
+  <div class="form-group row">
+    <label>Email</label>
+     <div class="col-6">
+    <input class="form-control"  type="text" placeholder="Please enter useremail" #username />
+    </div>
+  </div>
+  <div class="form-group row">
+    <label>Password</label>
+    <div class="col-6">
+    <input class="form-control" type="text" placeholder="please enter password" #password />
+    </div>
+  </div>
+</form>
+<div style="margin-top: 10px"  class="form-group">
+  <button class="btn btn-primary" (click)="evtLogin()">Login</button> | 
+  <button class="btn btn-danger" (click)="evtClear()">Clear</button>
+</div>
+</div>
