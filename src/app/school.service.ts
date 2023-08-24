@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 
 @Injectable({ providedIn: 'root' })
 export class SchoolService {
@@ -72,7 +72,9 @@ export class SchoolService {
  }
 
 
-
+  eventemitter  = new EventEmitter();
+  //which is useful for transfer the data b/w 2 components.
+  
 
 
 

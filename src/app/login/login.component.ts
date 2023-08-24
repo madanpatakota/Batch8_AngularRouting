@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router'
+import { SchoolService } from '../school.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   @ViewChild('username') username:ElementRef;
   @ViewChild('password') password:ElementRef;
 
-  constructor(private router:Router){
+  constructor(private router:Router , private schoolService : SchoolService){
 
   }
 
@@ -28,7 +29,9 @@ export class LoginComponent {
     localStorage.setItem("username",this.username.nativeElement.value);
     localStorage.setItem("password",this.password.nativeElement.value);
 
-    this.router.navigate(['main']);
+
+    this.schoolService.eventemitter.next("Authorized");
+    //
 
   }
 

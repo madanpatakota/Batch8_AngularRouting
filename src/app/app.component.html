@@ -2,7 +2,7 @@
   <h3>Angular Routing</h3>
 </div>
 
-<div class="container mt-2">
+<div class="container mt-2" *ngIf="isMainPage">
   <ul class="nav nav-tabs">
     <li><a routerLinkActive="active" routerLink="main" class="nav-item nav-link">Main</a></li>
     <li><a routerLinkActive="active"  routerLink="school" class="nav-item nav-link">School</a></li>

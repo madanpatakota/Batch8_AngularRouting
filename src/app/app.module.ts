@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { SchoolComponent } from './school/school.component';
 import { SchoolDetailsComponent } from './school-details/school-details.component';
-import { Routes , RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { SchoolhistoryComponent } from './school/schoolhistory/schoolhistory.component';
 import { LoginComponent } from './login/login.component';
 import { canActiveGuardGuard } from './can-active-guard.guard';
 import { canDeactivateGuard } from './can-deactivate.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { schoolResolver } from './school.resolver';
 
 // http://localhost:60934/main      ---- Maincontent
 // http://localhost:60934/school     ---- schoolcontent
@@ -31,29 +33,32 @@ import { canDeactivateGuard } from './can-deactivate.guard';
 const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent },
-  { path: 'school', 
-    component: SchoolComponent ,
-    children : 
-              [ 
-                  { 
-                    path : 'schoolhistory' ,
-                    component :SchoolhistoryComponent
-                  }
-              ],
-    canActivate : [canActiveGuardGuard]
+  {
+    path: 'school',
+    component: SchoolComponent,
+    children: [
+      {
+        path: 'schoolhistory',
+        component: SchoolhistoryComponent,
+      },
+    ],
+    canActivate: [canActiveGuardGuard],
+    resolve : [schoolResolver]
   },
-  { path: 'school-details', 
+  {
+    path: 'school-details',
     component: SchoolDetailsComponent,
-    canDeactivate : [canDeactivateGuard]
-     },
-  { path : '' , redirectTo:'login' , pathMatch:'full'}
+    canDeactivate: [canDeactivateGuard],
+  },
+  { path: 'not-found',
+    component: NotFoundComponent , 
+    data : [{ 'Message' : '401 Not found page'}] },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 //{ path: 'school-details/:ID', component: SchoolDetailsComponent }, param path
 // { path: 'school-details', component: SchoolDetailsComponent },
-
-
-
 
 // https://github.com/madanpatakota/Batch8_AngularRouting/actions
 
@@ -67,8 +72,9 @@ const AppRoutes: Routes = [
     SchoolDetailsComponent,
     SchoolhistoryComponent,
     LoginComponent,
+    NotFoundComponent,
   ],
-  imports: [BrowserModule , RouterModule.forRoot(AppRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(AppRoutes)],
   providers: [],
   bootstrap: [AppComponent],
 })

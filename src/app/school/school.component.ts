@@ -1,7 +1,7 @@
 import { Component  , OnInit} from '@angular/core';
 import { SchoolService  } from '../school.service';
 import { SchoolModel } from '../school.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-school',
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 })
 export class SchoolComponent implements OnInit {
-    constructor(private schoolService : SchoolService , private router : Router){
+    constructor(private schoolService : SchoolService , private router : Router , private activateRouter : ActivatedRoute){
 
     }
 
@@ -20,6 +20,12 @@ export class SchoolComponent implements OnInit {
 
     ngOnInit(): void {
        this.allSchoolsList = this.schoolService.getSchoolsList();
+
+
+       this.activateRouter.data.subscribe((value)=>{
+           console.log(value);
+       })
+
     }
 
     evtNavigation(schoolID:any){
